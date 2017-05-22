@@ -3,15 +3,20 @@ def gradle;
 node {
 	stage('Pull') { 
       		git 'https://github.com/dbgjerez/ic-gradle.git'
-		checkout scm
+		steps {
+			checkout scm
+		}
 	}
 	
    	stage('Build') {
-       		sh "'./gradlew' clean build"
+		steps {
+	       		sh "'./gradlew' clean build"
+		}
    	}
 
 	stage('Test Results') {
-		stash includes: 'build/jacoco/*.exec', name: 'unitCodeCoverage'
-	        step([$class: 'JUnitResultArchiver', testResults: '**/build/test-results/*.xml'])
+		steps {
+			junit '**/build/test-results/*.xml'
+		}
 	}
 }
