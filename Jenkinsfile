@@ -11,7 +11,6 @@ node {
    	}
 
 	stage('Test Results') {
-		junit '**/build/test-results/test/*.xml'
-		step( [ $class: 'JacocoPublisher' ] )
+		jacoco()
 	}
 }
