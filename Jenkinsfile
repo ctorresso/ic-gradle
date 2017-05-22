@@ -9,6 +9,10 @@ node {
    	stage('Build') {
 	    	sh "'./gradlew' clean build"
    	}
+	
+	stage('Integration tests') {
+		sh "'./gradlew' integration"
+	}
 
 	stage('Test Results') {
 		jacoco()
