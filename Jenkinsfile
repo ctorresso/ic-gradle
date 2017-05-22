@@ -11,6 +11,6 @@ node {
    	}
 
 	stage('Test Results') {
-		junit '**/build/test-results/*.xml'
+		junit '**/build/jacoco/*.exec'
 	}
 }
