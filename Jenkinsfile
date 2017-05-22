@@ -14,11 +14,13 @@ node {
 		sh "'./gradlew' integration"
 	}
 	
-	stage('SonarQube') {
-		sh "'./gradlew' sonar"
-	}
-
 	stage('Test Results') {
 		jacoco()
 	}
+
+	stage('SonarQube') {
+                sh "'./gradlew' sonar"
+        }
+
+
 }
