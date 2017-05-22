@@ -36,3 +36,25 @@ jacoco {
     toolVersion = "0.7.6.201602180812"
     reportsDir = file("$buildDir/jacoco")
 }
+
+sourceSets {
+    test {
+        java.srcDir 'src/test/unit/java'
+    }
+    integration {
+        java.srcDir 'src/test/integration/java'
+        resources.srcDir 'src/test/resources'
+        compileClasspath += main.output + test.output
+        runtimeClasspath += main.output + test.output
+    }
+}
+
+configurations {
+    integrationCompile.extendsFrom testCompile
+    integrationRuntime.extendsFrom testRuntime
+}
+
+task integration(type: Test, description: 'Runs the integration tests.', group: 'Verification') {
+    testClassesDir = sourceSets.integration.output.classesDir
+    classpath = sourceSets.integration.runtimeClasspath
+}
