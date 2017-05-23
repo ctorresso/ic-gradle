@@ -3,9 +3,9 @@ package com.dbg.ic.gradle.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbg.ic.gradle.dto.HelloWorldDTO;
@@ -24,7 +24,7 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "{language}", method = RequestMethod.GET)
-	public HelloWorldDTO list(@RequestParam String language) {
+	public HelloWorldDTO list(@PathVariable String language) {
 		return helloWorldService.listByLanguage(language);
 	}
 
