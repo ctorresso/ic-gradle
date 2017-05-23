@@ -36,7 +36,7 @@ public class TestIndexController {
 	@Test
 	public void testFindByLanguage() {
 		Mockito.when(helloWorldService.listByLanguage("es")).thenReturn(new HelloWorldDTO("es", "Hola mundo!"));
-		Assert.assertEquals(indexController.list("es"), "Hola mundo!");
+		Assert.assertEquals(indexController.list("es").getText(), "Hola mundo!");
 	}
 
 }
