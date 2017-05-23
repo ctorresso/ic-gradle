@@ -15,7 +15,7 @@ import com.dbg.ic.gradle.dto.HelloWorldDTO;
 public class HelloWorldServiceImpl implements HelloWorldService {
 
 	private static final Map<String, String> HELLOS = ((Supplier<Map<String, String>>) (() -> {
-		final Map<String, String> map = new HashMap<String, String>();
+		final Map<String, String> map = new HashMap<>();
 		map.put("es", "Hola mundo!");
 		map.put("en", "Hello world!");
 		return Collections.unmodifiableMap(map);
