@@ -15,12 +15,15 @@ node {
 	}
 	
 	stage('Test Results') {
-		jacoco buildOverBuild: true, changeBuildStatus: true, deltaMethodCoverage: '20', maximumMethodCoverage: '60'
+		jacoco()
 	}
 
 	stage('SonarQube') {
                 sh "'./gradlew' sonar"
         }
 
+	stage('Despliegue') {
+		sh "'/var/jenkins_home/prod.sh'"
+	}
 
 }
