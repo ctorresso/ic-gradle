@@ -1,8 +1,12 @@
 def gradle;
 
 node {
+	
+	def gitUrl = 'https://github.com/dbgjerez/ic-gradle.git';
+
 	stage('Pull') { 
-      		git 'https://github.com/dbgjerez/ic-gradle.git'
+		echo "Descarga de código"
+      		git gitUrl
 		checkout scm
 	}
 	
