@@ -22,7 +22,7 @@ node {
 	
 	stage('Test Results') {
 		echo "Recogida de datos de tests"
-		jacoco exclusionPattern: '**/DTO.class'
+		jacoco exclusionPattern: '**/DTO*.class'
 	}
 
 	stage('SonarQube') {
