@@ -29,8 +29,8 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 	@Override
 	public HelloWorldDTO listByLanguage(String language) {
-		return HELLOS.entrySet().stream().findAny().filter(entry -> entry.getValue().equals(language))
-				.map(e -> new HelloWorldDTO(e.getKey(), e.getValue())).orElse(new HelloWorldDTO());
+		return HELLOS.entrySet().stream().filter(entry -> entry.getKey().equals(language))
+				.map(e -> new HelloWorldDTO(e.getKey(), e.getValue())).findAny().orElse(new HelloWorldDTO());
 	}
 
 }
