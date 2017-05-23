@@ -1,8 +1,8 @@
 package com.dbg.ic.gradle.test.service;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Matchers;
 
 import com.dbg.ic.gradle.service.HelloWorldService;
 import com.dbg.ic.gradle.service.HelloWorldServiceImpl;
@@ -18,7 +18,7 @@ public class TestHelloWorldService {
 
 	@Test
 	public void testListAll() {
-		Assert.assertEquals(service.listAll(), Matchers.notNull());
+		Assert.assertThat(service.listAll(), CoreMatchers.notNullValue());
 	}
 
 }
