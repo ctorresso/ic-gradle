@@ -1,4 +1,4 @@
-package com.dbg.ic.gradle;
+package com.dbg.ic.gradle.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
