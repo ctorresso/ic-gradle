@@ -15,7 +15,7 @@ node {
 	}
 	
 	stage('Test Results') {
-		jacoco()
+		jacoco buildOverBuild: true, changeBuildStatus: true, deltaMethodCoverage: '20', maximumMethodCoverage: '60'
 	}
 
 	stage('SonarQube') {
