@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.dbg.ic.gradle.dto.HelloWorldDTO;
+import com.dbg.ic.gradle.exceptions.NotFoundException;
 
 @Service
 public class HelloWorldServiceImpl implements HelloWorldService {
@@ -28,9 +29,9 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 	}
 
 	@Override
-	public HelloWorldDTO listByLanguage(String language) {
-		return HI.entrySet().stream().filter(entry -> entry.getValue().equals(language))
-				.map(e -> new HelloWorldDTO(e.getKey(), e.getValue())).findAny().orElse(new HelloWorldDTO());
+	public HelloWorldDTO listByLanguage(String language) throws NotFoundException {
+		return HI.entrySet().stream().filter(entry -> entry.getKey().equals(language))
+				.map(e -> new HelloWorldDTO(e.getKey(), e.getValue())).findAny().orElseThrow(NotFoundException::new);
 	}
 
 }
