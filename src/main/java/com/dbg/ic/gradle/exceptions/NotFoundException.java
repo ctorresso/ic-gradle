@@ -4,4 +4,8 @@ public class NotFoundException extends Exception {
 
 	private static final long serialVersionUID = 8039682383484813176L;
 
+	public NotFoundException() {
+		super("Idioma no encontrado");
+	}
+
 }
