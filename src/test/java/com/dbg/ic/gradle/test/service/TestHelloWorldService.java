@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.dbg.ic.gradle.exceptions.NotFoundException;
 import com.dbg.ic.gradle.service.HelloWorldService;
 import com.dbg.ic.gradle.service.HelloWorldServiceImpl;
 
@@ -14,7 +15,7 @@ public class TestHelloWorldService {
 
 	@Test
 	@Ignore
-	public void testListByLanguage() {
+	public void testListByLanguage() throws NotFoundException {
 		Assert.assertEquals(service.listByLanguage("es").getText(), "Hola mundo!");
 	}
 
