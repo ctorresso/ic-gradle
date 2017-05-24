@@ -14,7 +14,7 @@ import com.dbg.ic.gradle.dto.HelloWorldDTO;
 @Service
 public class HelloWorldServiceImpl implements HelloWorldService {
 
-	private static final Map<String, String> HELLOS = ((Supplier<Map<String, String>>) (() -> {
+	private static final Map<String, String> HI = ((Supplier<Map<String, String>>) (() -> {
 		final Map<String, String> map = new HashMap<>();
 		map.put("es", "Hola mundo!");
 		map.put("en", "Hello world!");
@@ -23,13 +23,13 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 	@Override
 	public List<HelloWorldDTO> listAll() {
-		return HELLOS.entrySet().stream().map(entry -> new HelloWorldDTO(entry.getKey(), entry.getValue()))
+		return HI.entrySet().stream().map(entry -> new HelloWorldDTO(entry.getKey(), entry.getValue()))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public HelloWorldDTO listByLanguage(String language) {
-		return HELLOS.entrySet().stream().filter(entry -> entry.getKey().equals(language))
+		return HI.entrySet().stream().filter(entry -> entry.getKey().equals(language))
 				.map(e -> new HelloWorldDTO(e.getKey(), e.getValue())).findAny().orElse(new HelloWorldDTO());
 	}
 
