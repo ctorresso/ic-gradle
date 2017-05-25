@@ -11,3 +11,5 @@ El presente proyecto pretende realizar los pasos iniciales para la introducción
 * SonarQube
 * Java 8
 * Spring Boot
+# Jenkinsfile
+* Groovy
