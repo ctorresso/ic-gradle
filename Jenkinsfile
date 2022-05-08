@@ -12,7 +12,7 @@ node {
 	
    	stage('Build') {
 		echo "Construyendo el proyecto"
-	    	sh "'./gradlew' clean build -x test"
+	    	//sh "'./gradlew' clean build -x test"
    	}
 	
 	stage('Testing') {
